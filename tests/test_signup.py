@@ -8,11 +8,9 @@ def test_signup_with_coupon(driver):
     suffix = str(int(time.time())) + "-" + uuid.uuid4().hex[:6]
     email = config.TEST_EMAIL.format(suffix=suffix)
 
-    # Randomize first name and last name
     first_name = "QA" + ''.join(random.choices(string.ascii_uppercase, k=4))
     last_name = "Automation" + ''.join(random.choices(string.ascii_uppercase, k=4))
 
-    # Randomize phone number (starts with 8, 11 digits)
     phone_number = "8" + ''.join(random.choices(string.digits, k=10))
 
     page = SignupPage(driver, config.BASE_URL, timeout=config.EXPLICIT_WAIT)
